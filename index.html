@@ -26,16 +26,26 @@
 
         <section class="section">
             <div class="form">
-                <form>
+                <form id="formulario">
                     <div class="box">
-                        <input type="text" placeholder="The title for my new note">
+                        <input id="title" type="text" placeholder="The title for my new note">
                     </div>
+
                     <div class="box">
-                        <textarea placeholder="This is the body for the note"></textarea>
+                        <textarea id="text" placeholder="This is the body for the note"></textarea>
                     </div>
+
                     <div class="more">
-                        <i class="fa-solid fa-palette"></i>
-                        <button> keep it!</button>
+                        <div class="hiddenPalette" id="paletas2">
+                            <span class="span1" id="rojo"></span>
+                            <span class="span2" id="azul"></span>
+                            <span class="span3" id="verde"></span>
+                            <span class="span4" id="amarillo"></span>
+                        </div>
+                        <button  id="palette">
+                            <i class="fa-solid fa-palette"></i>
+                        </button>
+                        <button type="submit"> keep it!</button>
                     </div>
                 </form>
             </div>

@@ -44,13 +44,15 @@ a{
 }
 
 .main {
-    display: flex;
     background-color: #1D2128;
-    height: calc(100vh - 70px);
     color: #fff;
+    display: flex;
+    min-height: 100vh;
+    max-height: 100%;
 }
 
 /* nav lateral */
+
 .main .nav {
     background-color: #1D2128;
     border-right: 1px solid #D1D1D1;
@@ -164,6 +166,7 @@ a{
 }
 
 .main .section .form form .more{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -199,4 +202,113 @@ a{
 .main .section .show p{
     font-weight: bolder;
     color: #fff;
+}
+
+
+
+.main .section .notes{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.main .section .notes .card{
+    background-color: red;
+    height: 260px;
+    width: 260px;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* overflow: scroll; */
+
+}
+.main .section .notes .card  h2{
+    width: 100%;
+    height: auto;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.main .section .notes .card  p{
+    width: 100%;
+    height: auto;
+    word-wrap: break-word;
+}
+
+.main .section .notes .card .more-buttons{
+    width: 91%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main .section .notes .card .more-buttons button{
+   height: 36px;
+   width: 36px;
+   border: none;
+   outline: none;
+   border-radius: 50%;
+   background-color:#FFFFFF;
+   color: #999B9E;
+   font-weight: bold;
+   cursor: pointer;
+   transition: background-color 200ms;
+}
+
+.main .section .notes .card .more-buttons button:hover{
+    background-color:#999B9E;
+    color: #fff;
+}
+
+
+/* PELETA  */
+
+#paletas2 {
+    position: absolute;
+    border-radius: 8px;
+    left:0;
+    bottom:-80px;
+    width: 155px;
+    height: 65px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#paletas2  span{
+    display: block;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: #1D2128;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 200ms;
+}
+#paletas2 span:hover{
+    transform: scale(1.1999);
+}
+
+#paletas2.hiddenPalette{
+    display: none;
+}
+
+#paletas2 .span1 {
+    background-color: red;
+}
+#paletas2 .span2 {
+    background-color: blue;
+}
+#paletas2 .span3 {
+    background-color: green;
+}
+#paletas2 .span4 {
+    background-color: yellow;
 }
