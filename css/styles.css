@@ -179,17 +179,19 @@ a{
     font-weight: bold;
     cursor: pointer;
     padding: 10px 20px;
-    background-color: #babdc1;
+    background-color: transparent;
     border-radius: 7px;
+    transition: background-color 200ms ;
 }
-
+.main .section .form form .more button:hover{
+    background-color: #999B9E;
+}
 .main .section .form form .more button:active{
     transform: scale(0.99);
 }
 
 .main .section .form form .more i{
-    font-size: 18px;
-    color: #999B9E;
+    font-size: 23px;
     cursor: pointer;
 }
 

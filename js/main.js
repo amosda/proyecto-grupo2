@@ -53,9 +53,8 @@ formulario.addEventListener("submit", (e) => {
     let inputTitle = document.querySelector("#title").value;
     let inputText = document.querySelector("#text").value;
 
-    if(inputTitle === "" && inputText === ""){
-        return false;
-    }else if( inputTitle !==""  && inputText !== ""){
+    if( inputTitle !==""  && inputText !== ""){
+        divEmpty.classList.remove("show");
         divEmpty.classList.add("hidden");
 
         let obj = {
@@ -75,12 +74,24 @@ formulario.addEventListener("submit", (e) => {
         let buttons = document.createElement("DIV");
         let iconPalette =  document.createElement ("button");
         let iconTrash =  document.createElement ("button");
+
     
         buttons.classList.add("more-buttons");
         iconPalette.classList.add("fa-solid", "fa-palette");
         iconTrash.classList.add("fa-solid", "fa-trash-can");
         
         card.classList.add("card");
+
+        iconPalette.onclick = () => {
+        console.log("diste click");
+            
+        }
+
+        iconTrash.onclick = (e) => {
+        console.log(notesContent.children)
+            // card.style.display = "none";
+         notesContent.children[0].remove();
+        }
     
         userData.forEach((element) => {
               title.textContent = element.inputTitle;
@@ -94,11 +105,24 @@ formulario.addEventListener("submit", (e) => {
                buttons.append(iconTrash);
                card.append(buttons);
                notesContent.append(card);
-        })
-        
-    }
-    
 
+               let inputTi = document.getElementById("title")
+               let inputT = document.getElementById("text")
+
+
+               inputT.value ="";
+               inputTi.value ="";
+
+        })
+
+     
+
+        
+    }else if(inputTitle === "" && inputText === ""){ 
+      return false;
+    }
+
+   
 });
 
 
@@ -111,7 +135,9 @@ btnPalette.addEventListener("click", (e) => {
 }, false );
 
 
-
+if(notesContent.children.length === 0){
+     divEmpty.classList.remove("hidden") 
+}
 
 // btnPalette.onclick = () => {
 //     console.log("Diste click");
