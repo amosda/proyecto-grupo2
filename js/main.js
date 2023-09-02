@@ -10,77 +10,94 @@ let rojo = document.querySelector("#rojo");
 let azul = document.querySelector("#azul");
 let verde = document.querySelector("#verde");
 let amarillo = document.querySelector("#amarillo");
-
+let inconoPalette = document.querySelector("#palette i")
 
 
 let userData = []; 
-
-let colorsData = [];
 // -------------------------
 
 
+colorElegido = "";
 
 rojo.onclick = (e) => {
-    colorsData.push("rojo");
+    colorElegido = "red"
+    palette.classList.add("hiddenPalette")
+    inconoPalette.style.color = colorElegido;
+
 }
 azul.onclick = (e) => {
-    colorsData.push("azul");
+    colorElegido = "blue"
+    palette.classList.add("hiddenPalette")
+    inconoPalette.style.color = colorElegido;
+
 }
 verde.onclick = (e) => {
-    colorsData.push("verde");
+    colorElegido = "green"
+    palette.classList.add("hiddenPalette")
+    inconoPalette.style.color = colorElegido;
+
 }
 amarillo.onclick = (e) => {
-    colorsData.push("amarillo");
+    colorElegido = "yellow"
+    palette.classList.add("hiddenPalette")
+    inconoPalette.style.color = colorElegido;
+
 }
 
-console.log(colorsData);
+
 
 formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    divEmpty.classList.remove("show");  
-    divEmpty.classList.add("hidden");
+    e.preventDefault();  
 
     // locales
     let inputTitle = document.querySelector("#title").value;
     let inputText = document.querySelector("#text").value;
 
-    let obj = {
-        inputTitle,
-        inputText
-    }
+    if(inputTitle === "" && inputText === ""){
+        return false;
+    }else if( inputTitle !==""  && inputText !== ""){
+        divEmpty.classList.add("hidden");
 
-    userData.push(obj)
-
-    //creamos etiquetas HTML para nuestro componente card 
-    let card = document.createElement("DIV");
-    let title = document.createElement("H2");
-    let text = document.createElement("P");
-
-    let buttons = document.createElement("DIV");
-    let iconPalette =  document.createElement ("button");
-    let iconTrash =  document.createElement ("button");
-
-    buttons.classList.add("more-buttons");
-    iconPalette.classList.add("fa-solid", "fa-palette");
-    iconTrash.classList.add("fa-solid", "fa-trash-can");
+        let obj = {
+            inputTitle,
+            inputText
+        }
     
-    card.classList.add("card");
+        userData.push(obj)
     
-    userData.forEach((element) => {
-        title.textContent = element.inputTitle;
-        text.textContent = element.inputText;
-    
-        card.append(title);
-        card.append(text);
-        // iconPalette.classList.add("fa-solid fa-trash-can");
-        // iconTrash.classList.add("fa-solid fa-palette");
-         buttons.append(iconPalette);
-         buttons.append(iconTrash);
-         card.append(buttons);
+        //creamos etiquetas HTML para nuestro componente card 
         
-         notesContent.append(card);
-    })
+        let card = document.createElement("DIV");
+        let title = document.createElement("H2");
+        let text = document.createElement("P");
+        card.style.backgroundColor = colorElegido
+    
+        let buttons = document.createElement("DIV");
+        let iconPalette =  document.createElement ("button");
+        let iconTrash =  document.createElement ("button");
+    
+        buttons.classList.add("more-buttons");
+        iconPalette.classList.add("fa-solid", "fa-palette");
+        iconTrash.classList.add("fa-solid", "fa-trash-can");
+        
+        card.classList.add("card");
+    
+        userData.forEach((element) => {
+              title.textContent = element.inputTitle;
+              text.textContent = element.inputText;
+    
+              card.append(title);
+              card.append(text);
+              // iconPalette.classList.add("fa-solid fa-trash-can");
+              // iconTrash.classList.add("fa-solid fa-palette");
+               buttons.append(iconPalette);
+               buttons.append(iconTrash);
+               card.append(buttons);
+               notesContent.append(card);
+        })
+        
+    }
+    
 
 });
 
@@ -92,6 +109,7 @@ btnPalette.addEventListener("click", (e) => {
     palette.classList.toggle("hiddenPalette")
     
 }, false );
+
 
 
 
